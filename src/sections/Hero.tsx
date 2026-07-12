@@ -1,9 +1,11 @@
-import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef, type PointerEvent as ReactPointerEvent } from 'react'
+import { motion, useMotionValue, useScroll, useSpring, useTransform } from 'framer-motion'
 import { ArrowDown, FileDown, Github, Linkedin, Mail } from 'lucide-react'
 import { person, socials } from '../data/content'
 import { Container } from '../components/Container'
 import { HeroCanvas } from '../components/HeroCanvas'
+import { GlowOrbs } from '../components/GlowOrbs'
+import { ScanLine } from '../components/ScanLine'
 import { MagneticLink } from '../components/MagneticLink'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 
@@ -28,25 +30,56 @@ export function Hero() {
   const parallaxY = useTransform(scrollYProgress, [0, 1], [0, 90])
   const parallaxOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
 
+  const tiltX = useMotionValue(0)
+  const tiltY = useMotionValue(0)
+  const springTiltX = useSpring(tiltX, { stiffness: 150, damping: 20, mass: 0.5 })
+  const springTiltY = useSpring(tiltY, { stiffness: 150, damping: 20, mass: 0.5 })
+
+  const handlePointerMove = (event: ReactPointerEvent<HTMLElement>) => {
+    if (prefersReducedMotion) return
+    const rect = event.currentTarget.getBoundingClientRect()
+    const relX = (event.clientX - rect.left) / rect.width - 0.5
+    const relY = (event.clientY - rect.top) / rect.height - 0.5
+    tiltY.set(relX * 6)
+    tiltX.set(relY * -6)
+  }
+
+  const handlePointerLeave = () => {
+    tiltX.set(0)
+    tiltY.set(0)
+  }
+
   return (
     <section
       id="top"
       ref={sectionRef}
+      onPointerMove={handlePointerMove}
+      onPointerLeave={handlePointerLeave}
+      style={{ perspective: 1200 }}
       className="relative flex min-h-screen items-center overflow-hidden bg-grid pt-16"
     >
-      <div className="pointer-events-none absolute inset-0 opacity-70">
+      <GlowOrbs />
+
+      <div className="pointer-events-none absolute inset-0">
         <HeroCanvas />
       </div>
+
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            'radial-gradient(60% 50% at 50% 40%, transparent, rgb(var(--color-bg)) 85%)',
+            'linear-gradient(100deg, rgb(var(--color-bg)) 0%, rgb(var(--color-bg)) 32%, rgb(var(--color-bg) / 0.55) 52%, transparent 78%)',
         }}
       />
 
+      <ScanLine />
+
       <motion.div
-        style={prefersReducedMotion ? undefined : { y: parallaxY, opacity: parallaxOpacity }}
+        style={
+          prefersReducedMotion
+            ? undefined
+            : { y: parallaxY, opacity: parallaxOpacity, rotateX: springTiltX, rotateY: springTiltY }
+        }
         className="relative z-10 w-full"
       >
         <Container>
