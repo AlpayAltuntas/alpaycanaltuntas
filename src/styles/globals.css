@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Light theme — "Architected": editorial, ink-on-paper, blueprint blue accent. */
+:root[data-theme='light'] {
+  --color-bg: 247 245 240;
+  --color-surface: 255 255 255;
+  --color-ink: 20 22 26;
+  --color-muted: 82 86 94;
+  --color-border: 223 217 204;
+  --color-accent: 41 84 200;
+  --color-accent-ink: 255 255 255;
+  --grid-line: 41 84 200;
+  --grid-opacity: 0.05;
+}
+
+/* Dark theme — "Secure Systems": near-black, electric signal-mint accent. */
+:root[data-theme='dark'] {
+  --color-bg: 5 7 10;
+  --color-surface: 11 14 19;
+  --color-ink: 233 237 242;
+  --color-muted: 138 148 163;
+  --color-border: 27 32 41;
+  --color-accent: 0 255 178;
+  --color-accent-ink: 4 20 15;
+  --grid-line: 0 255 178;
+  --grid-opacity: 0.06;
+}
+
+* {
+  border-color: rgb(var(--color-border));
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light dark;
+}
+
+body {
+  background-color: rgb(var(--color-bg));
+  color: rgb(var(--color-ink));
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body,
+button,
+a {
+  transition: background-color 300ms ease, color 300ms ease, border-color 300ms ease;
+}
+
+::selection {
+  background-color: rgb(var(--color-accent) / 0.25);
+  color: rgb(var(--color-ink));
+}
+
+:focus-visible {
+  outline: 2px solid rgb(var(--color-accent));
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(var(--grid-line) / var(--grid-opacity)) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(var(--grid-line) / var(--grid-opacity)) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.sr-only-focusable:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

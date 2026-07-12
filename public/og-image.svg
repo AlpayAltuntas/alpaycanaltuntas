@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#00FFB2" stroke-opacity="0.08" stroke-width="1" />
+    </pattern>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#05070A" stop-opacity="0" />
+      <stop offset="100%" stop-color="#05070A" stop-opacity="0.9" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="#05070A" />
+  <rect width="1200" height="630" fill="url(#grid)" />
+  <rect width="1200" height="630" fill="url(#fade)" />
+
+  <rect x="1" y="1" width="1198" height="628" fill="none" stroke="#1B2029" stroke-width="2" />
+
+  <text x="80" y="140" font-family="'JetBrains Mono', monospace" font-size="20" letter-spacing="3" fill="#00FFB2">
+    PORTFOLIO / ALPAYCANALTUNTAS.DEV
+  </text>
+
+  <text x="78" y="280" font-family="'Space Grotesk', sans-serif" font-size="76" font-weight="700" fill="#E9EDF2">
+    Alpay Can Altuntas
+  </text>
+
+  <text x="80" y="340" font-family="'Space Grotesk', sans-serif" font-size="34" font-weight="500" fill="#8A94A3">
+    Senior Software Engineer · Team Lead · Product Owner
+  </text>
+
+  <text x="80" y="420" font-family="'Space Grotesk', sans-serif" font-size="28" fill="#E9EDF2">
+    I build scalable, secure, product-minded software —
+  </text>
+  <text x="80" y="460" font-family="'Space Grotesk', sans-serif" font-size="28" fill="#E9EDF2">
+    from system architecture to shipped features.
+  </text>
+
+  <rect x="80" y="520" width="150" height="46" rx="8" fill="none" stroke="#00FFB2" stroke-width="1.5" />
+  <text x="155" y="549" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="18" fill="#00FFB2">
+    ACA
+  </text>
+
+  <circle cx="1080" cy="120" r="4" fill="#00FFB2" />
+  <circle cx="1105" cy="120" r="4" fill="#1B2029" />
+  <circle cx="1130" cy="120" r="4" fill="#1B2029" />
+</svg>

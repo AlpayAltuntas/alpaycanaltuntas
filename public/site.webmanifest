@@ -1,0 +1,15 @@
+{
+  "name": "Alpay Can Altuntas — Portfolio",
+  "short_name": "ACA",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "theme_color": "#05070A",
+  "background_color": "#05070A",
+  "display": "standalone",
+  "start_url": "."
+}
