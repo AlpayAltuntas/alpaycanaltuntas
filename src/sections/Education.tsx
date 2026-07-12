@@ -8,7 +8,7 @@ export function Education() {
   return (
     <section id="education" className="scroll-mt-16 border-t border-border py-24 sm:py-32">
       <Container>
-        <SectionHeading index="06 / Education" title="Certifications & education." />
+        <SectionHeading index="07 / Education" title="Certifications & education." />
 
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           <Reveal>

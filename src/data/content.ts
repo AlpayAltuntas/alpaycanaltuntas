@@ -56,6 +56,13 @@ export interface Certification {
   year: string
 }
 
+export interface CommunityPhoto {
+  src: string
+  alt: string
+  caption: string
+  wide?: boolean
+}
+
 export interface SocialLink {
   label: string
   href: string
@@ -68,6 +75,7 @@ export const nav: NavLink[] = [
   { label: 'Experience', href: '#experience' },
   { label: 'Skills', href: '#skills' },
   { label: 'Passions', href: '#passions' },
+  { label: 'Community', href: '#community' },
   { label: 'Education', href: '#education' },
   { label: 'Contact', href: '#contact' },
 ]
@@ -268,6 +276,49 @@ export const passions: Passion[] = [
     description: 'Growing my open-source contributions and giving back to the tools I rely on.',
   },
 ]
+
+export const community = {
+  kicker: '25 Years of OWASP · Vienna, June 2026',
+  title: 'OWASP Global AppSec — Vienna',
+  paragraphs: [
+    "I attended OWASP Global AppSec Vienna for the Foundation's 25th anniversary, opening with Adam Shostack's two-day Threat Modeling Intensive. Even with prior threat-modeling experience, two full days inside the mindset and techniques behind it gave me a genuinely new perspective — and practical ideas I've since brought straight into my day-to-day work.",
+    'The conference itself was just as sharp: the launch of the AI Security Verification Standard (AISVS), deeper dives into OWASP SAMM, and a wide range of talks made one thing clear — the way we think about security has to evolve as fast as the industry does. What stood out most, though, was the community itself: open, generous, and genuinely thoughtful in every conversation.',
+  ],
+  highlights: [
+    'Threat Modeling Intensive with Adam Shostack',
+    'AISVS launch',
+    'OWASP SAMM deep dives',
+    'Community & hallway conversations',
+  ],
+  photos: [
+    {
+      src: `${import.meta.env.BASE_URL}owasp_alpay_adam.jpg`,
+      alt: 'Alpay Can Altuntas with Adam Shostack after the Threat Modeling Intensive workshop',
+      caption: 'With Adam Shostack, after the Threat Modeling Intensive',
+      wide: true,
+    },
+    {
+      src: `${import.meta.env.BASE_URL}owasp_intro_keynote.jpg`,
+      alt: 'OWASP Global AppSec Vienna opening keynote, "Build Something Worth Building"',
+      caption: 'Opening keynote — 25 years of open source security',
+    },
+    {
+      src: `${import.meta.env.BASE_URL}owasp_aisvs_launch.jpg`,
+      alt: 'Panel launching the OWASP AI Security Verification Standard (AISVS)',
+      caption: 'Launch of the AI Security Verification Standard',
+    },
+    {
+      src: `${import.meta.env.BASE_URL}owasp_conference_talk.jpg`,
+      alt: 'Audience at an OWASP Global AppSec Vienna conference talk',
+      caption: 'One of many packed conference sessions',
+    },
+    {
+      src: `${import.meta.env.BASE_URL}owasp_intro.jpg`,
+      alt: 'Alpay Can Altuntas at OWASP Global AppSec Vienna, 25th anniversary',
+      caption: 'OWASP Global AppSec Vienna, 25 years of open source security',
+    },
+  ] satisfies CommunityPhoto[],
+}
 
 export const certifications: Certification[] = [
   { name: 'AWS Solutions Architect', year: '2023' },

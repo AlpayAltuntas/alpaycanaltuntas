@@ -13,7 +13,7 @@ export function Contact() {
         <Reveal className="mx-auto max-w-2xl text-center">
           <div className="mb-4 flex items-center justify-center gap-3 font-mono text-xs uppercase tracking-[0.25em] text-accent">
             <span className="h-px w-8 bg-accent" aria-hidden />
-            07 / Contact
+            08 / Contact
             <span className="h-px w-8 bg-accent" aria-hidden />
           </div>
           <h2 className="text-balance text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
