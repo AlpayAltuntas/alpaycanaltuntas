@@ -119,14 +119,14 @@ export const about = {
 
 export const metrics: Metric[] = [
   {
-    value: 55,
+    value: 53,
     suffix: '%',
     prefix: '+',
     label: 'Customer satisfaction',
     detail: 'From a core-application modernization I led.',
   },
   {
-    value: 20,
+    value: 15,
     suffix: '%',
     prefix: '+',
     label: 'New contract growth',
@@ -139,7 +139,7 @@ export const metrics: Metric[] = [
     detail: 'Reduction on big-data e-invoicing & OCR workloads.',
   },
   {
-    value: 50000,
+    value: 10000,
     suffix: '+',
     label: 'Users served',
     detail: 'Across the platforms I have built and shipped.',
@@ -148,7 +148,7 @@ export const metrics: Metric[] = [
 
 export const countryCoverage = {
   from: 30,
-  to: 40,
+  to: 36,
   label: 'Supported countries via SAP integrations & APIs',
 }
 
