@@ -1,16 +1,20 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
-import { nav, person } from '../data/content'
+import { useContent } from '../i18n/LanguageContext'
 import { useActiveSection } from '../hooks/useActiveSection'
 import { ThemeToggle } from './ThemeToggle'
+import { LanguageSwitcher } from './LanguageSwitcher'
 import { Container } from './Container'
 
-const sectionIds = nav.map((link) => link.href.replace('#', ''))
+// Href order (and ids) is identical across every locale — only the labels are translated —
+// so this stays a stable module-level reference instead of being recomputed from content.nav.
+const SECTION_IDS = ['about', 'impact', 'experience', 'skills', 'passions', 'community', 'education', 'contact']
 
 export function Nav() {
+  const content = useContent()
   const [mobileOpen, setMobileOpen] = useState(false)
-  const activeId = useActiveSection(sectionIds)
+  const activeId = useActiveSection(SECTION_IDS)
 
   return (
     <header className="fixed inset-x-0 top-0 z-40 border-b border-border bg-bg/80 backdrop-blur-md">
@@ -18,13 +22,13 @@ export function Nav() {
         <a
           href="#top"
           className="font-mono text-sm font-semibold tracking-widest text-ink"
-          aria-label={`${person.name} — back to top`}
+          aria-label={`${content.person.name} ${content.ui.backToTop}`}
         >
           ACA<span className="text-accent">.</span>
         </a>
 
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
-          {nav.map((link) => {
+        <nav className="hidden items-center gap-1 md:flex" aria-label={content.ui.primaryNav}>
+          {content.nav.map((link) => {
             const id = link.href.replace('#', '')
             const isActive = id === activeId
             return (
@@ -51,10 +55,11 @@ export function Nav() {
 
         <div className="flex items-center gap-3">
           <ThemeToggle />
+          <LanguageSwitcher />
           <button
             type="button"
             className="text-ink md:hidden"
-            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            aria-label={mobileOpen ? content.ui.closeMenu : content.ui.openMenu}
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((open) => !open)}
           >
@@ -66,7 +71,7 @@ export function Nav() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.nav
-            aria-label="Primary mobile"
+            aria-label={content.ui.primaryNavMobile}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -74,7 +79,7 @@ export function Nav() {
             className="overflow-hidden border-b border-border bg-bg md:hidden"
           >
             <Container className="flex flex-col gap-1 py-3">
-              {nav.map((link) => (
+              {content.nav.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}

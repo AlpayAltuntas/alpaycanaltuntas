@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { person } from '../data/content'
+import { useContent } from '../i18n/LanguageContext'
 
 export function ProfileImage({ className = '' }: { className?: string }) {
+  const { person, ui } = useContent()
   const [errored, setErrored] = useState(false)
 
   if (errored) {
@@ -9,7 +10,7 @@ export function ProfileImage({ className = '' }: { className?: string }) {
       <div
         className={`flex items-center justify-center bg-surface font-mono text-4xl font-semibold text-accent ${className}`}
         role="img"
-        aria-label={`${person.name} — initials monogram`}
+        aria-label={`${person.name} ${ui.initialsMonogram}`}
       >
         {person.initials}
       </div>

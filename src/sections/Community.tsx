@@ -1,18 +1,19 @@
 import { useState } from 'react'
 import { Maximize2 } from 'lucide-react'
-import { community } from '../data/content'
+import { useContent } from '../i18n/LanguageContext'
 import { Container } from '../components/Container'
 import { Reveal } from '../components/Reveal'
 import { SectionHeading } from '../components/SectionHeading'
 import { Lightbox } from '../components/Lightbox'
 
 export function Community() {
+  const { community, sections, ui } = useContent()
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
 
   return (
     <section id="community" className="scroll-mt-16 border-t border-border py-24 sm:py-32">
       <Container>
-        <SectionHeading index="06 / Community" title={community.title} description={community.kicker} />
+        <SectionHeading index={sections.community.index} title={community.title} description={community.kicker} />
 
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
           <Reveal>
@@ -43,7 +44,7 @@ export function Community() {
                   key={photo.src}
                   type="button"
                   onClick={() => setActiveIndex(i)}
-                  aria-label={`View larger photo: ${photo.caption}`}
+                  aria-label={`${ui.viewLargerPhoto}: ${photo.caption}`}
                   className={`group relative overflow-hidden rounded-2xl border border-border ${
                     photo.wide ? 'col-span-2 aspect-[16/9]' : 'aspect-[4/3]'
                   }`}

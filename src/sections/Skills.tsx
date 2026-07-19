@@ -1,17 +1,19 @@
-import { languages, skillGroups } from '../data/content'
+import { useContent } from '../i18n/LanguageContext'
 import { Container } from '../components/Container'
 import { Reveal } from '../components/Reveal'
 import { SectionHeading } from '../components/SectionHeading'
 import { SpotlightCard } from '../components/SpotlightCard'
 
 export function Skills() {
+  const { skillGroups, spokenLanguages, sections } = useContent()
+
   return (
     <section id="skills" className="scroll-mt-16 border-t border-border py-24 sm:py-32">
       <Container>
         <SectionHeading
-          index="04 / Skills"
-          title="The toolkit."
-          description="Languages, frameworks, and practices I reach for daily."
+          index={sections.skills.index}
+          title={sections.skills.title}
+          description={sections.skills.description}
         />
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -35,9 +37,11 @@ export function Skills() {
         </div>
 
         <Reveal delay={0.2} className="mt-12">
-          <h3 className="font-mono text-xs uppercase tracking-widest text-accent">Spoken Languages</h3>
+          <h3 className="font-mono text-xs uppercase tracking-widest text-accent">
+            {sections.skills.spokenLanguagesLabel}
+          </h3>
           <div className="mt-4 flex flex-wrap gap-3">
-            {languages.map((language) => (
+            {spokenLanguages.map((language) => (
               <span
                 key={language.name}
                 className="flex items-center gap-2 rounded-full bg-surface px-4 py-2 text-sm text-ink"

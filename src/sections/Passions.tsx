@@ -1,5 +1,5 @@
 import { Network, Cpu, ShieldCheck, GitBranch } from 'lucide-react'
-import { passions } from '../data/content'
+import { useContent } from '../i18n/LanguageContext'
 import { Container } from '../components/Container'
 import { Reveal } from '../components/Reveal'
 import { SectionHeading } from '../components/SectionHeading'
@@ -7,10 +7,12 @@ import { SectionHeading } from '../components/SectionHeading'
 const icons = [Network, Cpu, ShieldCheck, GitBranch]
 
 export function Passions() {
+  const { passions, sections } = useContent()
+
   return (
     <section id="passions" className="scroll-mt-16 bg-grid py-24 sm:py-32">
       <Container>
-        <SectionHeading index="05 / Passions" title="What I'm passionate about." />
+        <SectionHeading index={sections.passions.index} title={sections.passions.title} />
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
           {passions.map((passion, i) => {

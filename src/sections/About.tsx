@@ -1,14 +1,16 @@
-import { about } from '../data/content'
+import { useContent } from '../i18n/LanguageContext'
 import { Container } from '../components/Container'
 import { Reveal } from '../components/Reveal'
 import { SectionHeading } from '../components/SectionHeading'
 import { ProfileImage } from '../components/ProfileImage'
 
 export function About() {
+  const { about, sections } = useContent()
+
   return (
     <section id="about" className="scroll-mt-16 py-24 sm:py-32">
       <Container>
-        <SectionHeading index="01 / About" title="Engineer, architect, product owner." />
+        <SectionHeading index={sections.about.index} title={sections.about.title} />
 
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
           <Reveal delay={0.1}>

@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
-import type { CommunityPhoto } from '../data/content'
+import type { CommunityPhoto } from '../i18n/types'
+import { useContent } from '../i18n/LanguageContext'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 
 interface LightboxProps {
@@ -12,6 +13,7 @@ interface LightboxProps {
 }
 
 export function Lightbox({ photos, index, onClose, onIndexChange }: LightboxProps) {
+  const { ui } = useContent()
   const prefersReducedMotion = usePrefersReducedMotion()
   const isOpen = index !== null
 
@@ -65,7 +67,7 @@ export function Lightbox({ photos, index, onClose, onIndexChange }: LightboxProp
 
             <button
               type="button"
-              aria-label="Close"
+              aria-label={ui.closePhoto}
               onClick={onClose}
               className="absolute -top-4 -right-4 flex h-10 w-10 items-center justify-center rounded-full border border-border bg-surface text-ink transition-colors hover:border-accent hover:text-accent"
             >
@@ -76,7 +78,7 @@ export function Lightbox({ photos, index, onClose, onIndexChange }: LightboxProp
               <>
                 <button
                   type="button"
-                  aria-label="Previous photo"
+                  aria-label={ui.previousPhoto}
                   onClick={() => onIndexChange((index - 1 + photos.length) % photos.length)}
                   className="absolute left-2 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-surface/90 text-ink transition-colors hover:border-accent hover:text-accent sm:-left-14"
                 >
@@ -84,7 +86,7 @@ export function Lightbox({ photos, index, onClose, onIndexChange }: LightboxProp
                 </button>
                 <button
                   type="button"
-                  aria-label="Next photo"
+                  aria-label={ui.nextPhoto}
                   onClick={() => onIndexChange((index + 1) % photos.length)}
                   className="absolute right-2 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-surface/90 text-ink transition-colors hover:border-accent hover:text-accent sm:-right-14"
                 >

@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
-import type { ExperienceEntry } from '../data/content'
+import type { ExperienceEntry } from '../i18n/types'
+import { useContent } from '../i18n/LanguageContext'
 import { Reveal } from './Reveal'
 
 export function TimelineItem({
@@ -13,6 +14,7 @@ export function TimelineItem({
   defaultOpen?: boolean
   delay?: number
 }) {
+  const { ui } = useContent()
   const [open, setOpen] = useState(defaultOpen)
   const panelId = `experience-panel-${entry.id}`
 
@@ -40,7 +42,7 @@ export function TimelineItem({
             <h3 className="text-lg font-semibold text-ink">{entry.company}</h3>
             {entry.current && (
               <span className="rounded-full border border-accent/40 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-widest text-accent">
-                Current
+                {ui.currentBadge}
               </span>
             )}
             <ChevronDown

@@ -1,11 +1,12 @@
-import { countryCoverage, metrics } from '../data/content'
+import { useContent } from '../i18n/LanguageContext'
+import type { LocaleContent } from '../i18n/types'
 import { Container } from '../components/Container'
 import { Reveal } from '../components/Reveal'
 import { SectionHeading } from '../components/SectionHeading'
 import { MetricCard } from '../components/MetricCard'
 import { useCountUp } from '../hooks/useCountUp'
 
-function CountryCoverage() {
+function CountryCoverage({ countryCoverage }: { countryCoverage: LocaleContent['countryCoverage'] }) {
   const { ref, value } = useCountUp(countryCoverage.to)
   const progress = Math.min(value / countryCoverage.to, 1)
 
@@ -30,13 +31,15 @@ function CountryCoverage() {
 }
 
 export function Impact() {
+  const { metrics, countryCoverage, sections } = useContent()
+
   return (
     <section id="impact" className="scroll-mt-16 border-t border-border bg-grid py-24 sm:py-32">
       <Container>
         <SectionHeading
-          index="02 / Impact"
-          title="Results, not just responsibilities."
-          description="Measured outcomes from the systems I've architected and shipped."
+          index={sections.impact.index}
+          title={sections.impact.title}
+          description={sections.impact.description}
         />
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
@@ -46,7 +49,7 @@ export function Impact() {
         </div>
 
         <div className="mt-5">
-          <CountryCoverage />
+          <CountryCoverage countryCoverage={countryCoverage} />
         </div>
       </Container>
     </section>

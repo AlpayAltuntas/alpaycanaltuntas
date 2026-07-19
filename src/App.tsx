@@ -1,4 +1,6 @@
 import { ThemeProvider } from './components/ThemeProvider'
+import { LanguageProvider } from './i18n/LanguageProvider'
+import { useContent } from './i18n/LanguageContext'
 import { Nav } from './components/Nav'
 import { ScrollProgress } from './components/ScrollProgress'
 import { Footer } from './components/Footer'
@@ -12,14 +14,16 @@ import { Community } from './sections/Community'
 import { Education } from './sections/Education'
 import { Contact } from './sections/Contact'
 
-function App() {
+function AppContent() {
+  const { ui } = useContent()
+
   return (
-    <ThemeProvider>
+    <>
       <a
         href="#top"
         className="sr-only-focusable fixed left-4 top-4 z-50 rounded bg-accent px-4 py-2 text-sm font-medium text-accent-ink"
       >
-        Skip to content
+        {ui.skipToContent}
       </a>
       <div className="grain-overlay pointer-events-none fixed inset-0 z-20" aria-hidden="true" />
       <ScrollProgress />
@@ -36,7 +40,17 @@ function App() {
         <Contact />
       </main>
       <Footer />
-    </ThemeProvider>
+    </>
+  )
+}
+
+function App() {
+  return (
+    <LanguageProvider>
+      <ThemeProvider>
+        <AppContent />
+      </ThemeProvider>
+    </LanguageProvider>
   )
 }
 

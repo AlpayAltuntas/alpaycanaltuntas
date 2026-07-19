@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion'
 import { Moon, Sun } from 'lucide-react'
 import { useTheme } from '../hooks/useTheme'
+import { useContent } from '../i18n/LanguageContext'
 
 export function ThemeToggle() {
   const { theme, toggleTheme } = useTheme()
+  const { ui } = useContent()
   const isDark = theme === 'dark'
 
   return (
@@ -11,7 +13,7 @@ export function ThemeToggle() {
       type="button"
       role="switch"
       aria-checked={isDark}
-      aria-label={`Switch to ${isDark ? 'light' : 'dark'} theme`}
+      aria-label={isDark ? ui.switchToLight : ui.switchToDark}
       onClick={toggleTheme}
       className="relative flex h-8 w-14 shrink-0 items-center rounded-full border border-border bg-surface px-1 transition-colors focus-visible:outline-2"
     >

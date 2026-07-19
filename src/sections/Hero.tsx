@@ -1,7 +1,7 @@
 import { useRef, type PointerEvent as ReactPointerEvent } from 'react'
 import { motion, useMotionValue, useScroll, useSpring, useTransform } from 'framer-motion'
 import { ArrowDown, FileDown, Github, Linkedin, Mail } from 'lucide-react'
-import { person, socials } from '../data/content'
+import { useContent } from '../i18n/LanguageContext'
 import { Container } from '../components/Container'
 import { HeroCanvas } from '../components/HeroCanvas'
 import { GlowOrbs } from '../components/GlowOrbs'
@@ -22,6 +22,7 @@ const item = {
 }
 
 export function Hero() {
+  const { person, socials, ui } = useContent()
   const prefersReducedMotion = usePrefersReducedMotion()
   const resume = socials.find((s) => s.icon === 'file-down')
   const sectionRef = useRef<HTMLElement>(null)
@@ -131,10 +132,10 @@ export function Hero() {
               variants={prefersReducedMotion ? undefined : item}
               className="mt-10 flex flex-wrap items-center gap-4"
             >
-              <MagneticLink href="#experience">View Work</MagneticLink>
+              <MagneticLink href="#experience">{ui.viewWork}</MagneticLink>
               {resume && (
                 <MagneticLink href={resume.href} variant="outline" download>
-                  <FileDown size={16} /> Download Résumé
+                  <FileDown size={16} /> {ui.downloadResume}
                 </MagneticLink>
               )}
               <div className="flex items-center gap-1">
@@ -166,7 +167,7 @@ export function Hero() {
 
       <motion.a
         href="#about"
-        aria-label="Scroll to About section"
+        aria-label={ui.scrollToAbout}
         className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-muted transition-colors hover:text-accent"
         initial={prefersReducedMotion ? undefined : { opacity: 0 }}
         animate={prefersReducedMotion ? undefined : { opacity: 1, y: [0, 8, 0] }}

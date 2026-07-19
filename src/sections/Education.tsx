@@ -1,20 +1,24 @@
 import { Award, GraduationCap } from 'lucide-react'
-import { affiliation, certifications, education } from '../data/content'
+import { useContent } from '../i18n/LanguageContext'
 import { Container } from '../components/Container'
 import { Reveal } from '../components/Reveal'
 import { SectionHeading } from '../components/SectionHeading'
 
 export function Education() {
+  const { affiliation, certifications, education, sections } = useContent()
+
   return (
     <section id="education" className="scroll-mt-16 border-t border-border py-24 sm:py-32">
       <Container>
-        <SectionHeading index="07 / Education" title="Certifications & education." />
+        <SectionHeading index={sections.education.index} title={sections.education.title} />
 
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           <Reveal>
             <div className="flex items-center gap-3">
               <GraduationCap size={20} className="text-accent" />
-              <h3 className="font-mono text-xs uppercase tracking-widest text-accent">Education</h3>
+              <h3 className="font-mono text-xs uppercase tracking-widest text-accent">
+                {sections.education.educationLabel}
+              </h3>
             </div>
             <div className="mt-5 rounded-2xl border border-border bg-surface p-6">
               <p className="text-lg font-semibold text-ink">{education.degree}</p>
@@ -36,7 +40,9 @@ export function Education() {
           <Reveal delay={0.1}>
             <div className="flex items-center gap-3">
               <Award size={20} className="text-accent" />
-              <h3 className="font-mono text-xs uppercase tracking-widest text-accent">Certifications</h3>
+              <h3 className="font-mono text-xs uppercase tracking-widest text-accent">
+                {sections.education.certificationsLabel}
+              </h3>
             </div>
             <ul className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
               {certifications.map((cert) => (
