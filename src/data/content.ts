@@ -88,7 +88,7 @@ export const person = {
   positioning:
     'I build scalable, secure, product-minded software — from system architecture to shipped features.',
   location: 'Based in / relocating to Memphis, TN, USA',
-  availability: 'Open to remote (U.S.) · Authorized to work in the U.S., no sponsorship required',
+  availability: 'Open to remote (U.S.)',
   funFact: 'Debugging sometimes feels like being the investigator and the culprit at the same time.',
   photo: `${import.meta.env.BASE_URL}profile.jpg`,
 }
