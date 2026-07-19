@@ -147,7 +147,7 @@ export const metrics: Metric[] = [
 ]
 
 export const countryCoverage = {
-  from: 30,
+  from: 27,
   to: 36,
   label: 'Supported countries via SAP integrations & APIs',
 }
