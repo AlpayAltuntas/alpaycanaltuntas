@@ -77,7 +77,7 @@ export function Hero() {
 
             <motion.h1
               variants={prefersReducedMotion ? undefined : item}
-              className="text-balance text-5xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-6xl lg:text-7xl"
+              className="text-balance text-5xl font-semibold leading-[1.15] tracking-tight text-ink sm:text-6xl lg:text-7xl"
             >
               {person.name}
             </motion.h1>
