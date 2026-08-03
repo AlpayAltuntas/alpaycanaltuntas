@@ -14,7 +14,7 @@ export default {
         'accent-ink': 'rgb(var(--color-accent-ink) / <alpha-value>)',
       },
       fontFamily: {
-        sans: ['"Sora"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
       spacing: {
