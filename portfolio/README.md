@@ -4,6 +4,8 @@ Personal portfolio site for Alpay Can Altuntas — Vite + React + TypeScript + T
 
 Live: **https://alpayaltuntas.github.io/alpaycanaltuntas/**
 
+This is the `portfolio/` project within the repo root — all commands below are run from inside this folder.
+
 ## Run locally
 
 ```bash
@@ -23,13 +25,17 @@ npm run lint     # ESLint
 
 ## Editing content
 
-Every piece of copy — name, positioning line, about paragraphs, impact metrics, experience, skills, passions, certifications, education, and links — lives in one typed file:
+The site supports five languages (English, German, French, Spanish, Portuguese) via the flag switcher in the nav. Every piece of copy — name, positioning line, about paragraphs, impact metrics, experience, skills, passions, certifications, education, links, and UI microcopy — lives in one typed locale file per language:
 
 ```
-src/data/content.ts
+src/i18n/locales/en.ts   # canonical/default
+src/i18n/locales/de.ts
+src/i18n/locales/fr.ts
+src/i18n/locales/es.ts
+src/i18n/locales/pt.ts
 ```
 
-Edit that file and the whole site updates; no other file needs to change for a content-only edit.
+All five share the `LocaleContent` shape defined in `src/i18n/types.ts`. Edit the English file for the source-of-truth copy, and update the matching field in each other locale file to keep translations in sync.
 
 ## Replacing assets
 
