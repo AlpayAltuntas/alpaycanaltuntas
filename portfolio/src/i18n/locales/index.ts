@@ -4,8 +4,9 @@ import de from './de'
 import fr from './fr'
 import es from './es'
 import pt from './pt'
+import tr from './tr'
 
-export const locales: Record<LanguageCode, LocaleContent> = { en, de, fr, es, pt }
+export const locales: Record<LanguageCode, LocaleContent> = { en, de, fr, es, pt, tr }
 
 export interface LanguageOption {
   code: LanguageCode
@@ -19,4 +20,5 @@ export const languageOptions: LanguageOption[] = [
   { code: 'fr', label: 'Français', flag: '🇫🇷' },
   { code: 'es', label: 'Español', flag: '🇪🇸' },
   { code: 'pt', label: 'Português', flag: '🇵🇹' },
+  { code: 'tr', label: 'Türkçe', flag: '🇹🇷' },
 ]

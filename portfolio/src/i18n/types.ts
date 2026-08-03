@@ -1,4 +1,4 @@
-export type LanguageCode = 'en' | 'de' | 'fr' | 'es' | 'pt'
+export type LanguageCode = 'en' | 'de' | 'fr' | 'es' | 'pt' | 'tr'
 
 export interface NavLink {
   label: string
