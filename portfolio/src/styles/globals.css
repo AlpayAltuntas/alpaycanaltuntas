@@ -7,16 +7,17 @@
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
 }
 
-/* Light theme — "Architected": editorial, ink-on-paper, blueprint blue accent. */
+/* Light theme — "Architected": editorial, ink-on-paper, deep signal-green accent
+   (same hue as the dark theme's mint, darkened for AA contrast on paper). */
 :root[data-theme='light'] {
   --color-bg: 247 245 240;
   --color-surface: 255 255 255;
   --color-ink: 20 22 26;
   --color-muted: 82 86 94;
   --color-border: 223 217 204;
-  --color-accent: 41 84 200;
+  --color-accent: 4 120 87;
   --color-accent-ink: 255 255 255;
-  --grid-line: 41 84 200;
+  --grid-line: 4 120 87;
   --grid-opacity: 0.05;
 }
 

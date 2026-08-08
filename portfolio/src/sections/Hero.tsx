@@ -7,6 +7,7 @@ import { HeroCanvas } from '../components/HeroCanvas'
 import { GlowOrbs } from '../components/GlowOrbs'
 import { ScanLine } from '../components/ScanLine'
 import { MagneticLink } from '../components/MagneticLink'
+import { ProfileImage } from '../components/ProfileImage'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 
 const iconFor = { github: Github, linkedin: Linkedin, mail: Mail, 'file-down': FileDown } as const
@@ -52,6 +53,20 @@ export function Hero() {
       />
 
       <ScanLine />
+
+      <motion.div
+        initial={prefersReducedMotion ? undefined : { opacity: 0, scale: 0.94 }}
+        animate={prefersReducedMotion ? undefined : { opacity: 1, scale: 1 }}
+        transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        className="pointer-events-none absolute right-16 top-1/2 z-10 hidden -translate-y-1/2 xl:block"
+      >
+        <div className="relative h-72 w-72">
+          <div className="absolute inset-0 rounded-full bg-accent/25 blur-3xl" aria-hidden />
+          <div className="relative h-full w-full overflow-hidden rounded-full border border-border bg-surface ring-1 ring-inset ring-border/80">
+            <ProfileImage className="h-full w-full" />
+          </div>
+        </div>
+      </motion.div>
 
       <motion.div
         style={prefersReducedMotion ? undefined : { y: parallaxY, opacity: parallaxOpacity }}

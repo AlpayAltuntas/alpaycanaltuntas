@@ -9,7 +9,7 @@ import { Container } from './Container'
 
 // Href order (and ids) is identical across every locale — only the labels are translated —
 // so this stays a stable module-level reference instead of being recomputed from content.nav.
-const SECTION_IDS = ['about', 'impact', 'experience', 'skills', 'passions', 'community', 'education', 'contact']
+const SECTION_IDS = ['about', 'impact', 'community', 'experience', 'skills', 'passions', 'education', 'contact']
 
 export function Nav() {
   const content = useContent()

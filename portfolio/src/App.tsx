@@ -32,10 +32,10 @@ function AppContent() {
         <Hero />
         <About />
         <Impact />
+        <Community />
         <Experience />
         <Skills />
         <Passions />
-        <Community />
         <Education />
         <Contact />
       </main>
