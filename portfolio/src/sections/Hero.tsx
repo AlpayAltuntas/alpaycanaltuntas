@@ -7,7 +7,6 @@ import { HeroCanvas } from '../components/HeroCanvas'
 import { GlowOrbs } from '../components/GlowOrbs'
 import { ScanLine } from '../components/ScanLine'
 import { MagneticLink } from '../components/MagneticLink'
-import { HeroStatusCard } from '../components/HeroStatusCard'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 
 const iconFor = { github: Github, linkedin: Linkedin, mail: Mail, 'file-down': FileDown } as const
@@ -48,13 +47,11 @@ export function Hero() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            'linear-gradient(100deg, rgb(var(--color-bg)) 0%, rgb(var(--color-bg)) 32%, rgb(var(--color-bg) / 0.55) 52%, transparent 78%)',
+            'radial-gradient(ellipse 60% 55% at 50% 45%, rgb(var(--color-bg) / 0.55) 0%, transparent 70%)',
         }}
       />
 
       <ScanLine />
-
-      <HeroStatusCard />
 
       <motion.div
         style={prefersReducedMotion ? undefined : { y: parallaxY, opacity: parallaxOpacity }}
@@ -65,29 +62,36 @@ export function Hero() {
             variants={prefersReducedMotion ? undefined : container}
             initial={prefersReducedMotion ? undefined : 'hidden'}
             animate={prefersReducedMotion ? undefined : 'show'}
-            className="max-w-3xl"
+            className="mx-auto flex max-w-3xl -translate-y-6 flex-col items-center text-center sm:-translate-y-10 lg:-translate-y-14"
           >
             <motion.p
               variants={prefersReducedMotion ? undefined : item}
-              className="mb-5 flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-accent"
+              className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-1.5 font-mono text-xs uppercase tracking-[0.2em] text-accent"
             >
               <span className="relative flex h-1.5 w-1.5" aria-hidden>
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
               </span>
-              {person.roleLine}
+              {person.availability}
             </motion.p>
 
             <motion.h1
               variants={prefersReducedMotion ? undefined : item}
-              className="text-balance text-5xl font-semibold leading-[1.15] tracking-tight text-ink sm:text-6xl lg:text-7xl"
+              className="text-balance text-5xl font-semibold leading-[1.1] tracking-tight text-ink sm:text-6xl lg:text-7xl xl:text-8xl mt-6"
             >
               {person.name}
             </motion.h1>
 
             <motion.p
               variants={prefersReducedMotion ? undefined : item}
-              className="mt-6 max-w-xl text-balance text-lg leading-relaxed text-muted sm:text-xl"
+              className="mt-4 font-mono text-xs uppercase tracking-[0.2em] text-muted sm:text-sm"
+            >
+              {person.roleLine}
+            </motion.p>
+
+            <motion.p
+              variants={prefersReducedMotion ? undefined : item}
+              className="mx-auto mt-6 max-w-xl text-balance text-lg leading-relaxed text-muted sm:text-xl"
             >
               {person.positioning}
               <span
@@ -96,47 +100,40 @@ export function Hero() {
               />
             </motion.p>
 
-            <motion.div
-              variants={prefersReducedMotion ? undefined : item}
-              className="mt-4 flex flex-col gap-1 font-mono text-xs text-muted sm:flex-row sm:gap-4"
-            >
-              <span>{person.location}</span>
-              <span className="hidden sm:inline text-border">/</span>
-              <span>{person.availability}</span>
+            <motion.p variants={prefersReducedMotion ? undefined : item} className="mt-3 font-mono text-xs text-muted">
+              {person.location}
+            </motion.p>
+
+            <motion.div variants={prefersReducedMotion ? undefined : item} className="mt-10 flex justify-center">
+              <MagneticLink href="#experience">{ui.viewWork}</MagneticLink>
             </motion.div>
 
             <motion.div
               variants={prefersReducedMotion ? undefined : item}
-              className="mt-10 flex flex-wrap items-center gap-4"
+              className="mt-4 flex flex-wrap items-center justify-center gap-3"
             >
-              <MagneticLink href="#experience">{ui.viewWork}</MagneticLink>
               {resume && (
                 <MagneticLink href={resume.href} variant="outline" download>
                   <FileDown size={16} /> {ui.downloadResume}
                 </MagneticLink>
               )}
-              <div className="flex items-center gap-1">
-                {socials
-                  .filter((s) => s.icon === 'github' || s.icon === 'linkedin' || s.icon === 'mail')
-                  .map((s) => {
-                    const Icon = iconFor[s.icon]
-                    return (
-                      <motion.a
-                        key={s.label}
-                        href={s.href}
-                        target={s.icon !== 'mail' ? '_blank' : undefined}
-                        rel={s.icon !== 'mail' ? 'noreferrer' : undefined}
-                        aria-label={s.label}
-                        whileHover={prefersReducedMotion ? undefined : { y: -4, scale: 1.08 }}
-                        whileTap={prefersReducedMotion ? undefined : { scale: 0.94 }}
-                        transition={{ type: 'spring', stiffness: 420, damping: 16 }}
-                        className="rounded-full border border-border p-3 text-ink transition-colors hover:border-accent hover:text-accent"
-                      >
-                        <Icon size={18} />
-                      </motion.a>
-                    )
-                  })}
-              </div>
+              {socials
+                .filter((s) => s.icon === 'github' || s.icon === 'linkedin' || s.icon === 'mail')
+                .map((s) => {
+                  const Icon = iconFor[s.icon]
+                  const external = s.icon === 'github' || s.icon === 'linkedin'
+                  return (
+                    <MagneticLink
+                      key={s.label}
+                      href={s.href}
+                      variant="outline"
+                      target={external ? '_blank' : undefined}
+                      rel={external ? 'noreferrer' : undefined}
+                    >
+                      <Icon size={16} /> {s.label}
+                    </MagneticLink>
+                  )
+                })}
             </motion.div>
           </motion.div>
         </Container>
