@@ -56,6 +56,7 @@ const de: LocaleContent = {
     allRightsReserved: 'Alle Rechte vorbehalten.',
     currentBadge: 'Aktuell',
     initialsMonogram: '— Initialen-Monogramm',
+    availableStatus: 'verfügbar',
   },
 
   sections: {

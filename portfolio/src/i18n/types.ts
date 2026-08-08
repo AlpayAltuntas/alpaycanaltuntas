@@ -104,6 +104,7 @@ export interface LocaleContent {
     allRightsReserved: string
     currentBadge: string
     initialsMonogram: string
+    availableStatus: string
   }
 
   sections: {

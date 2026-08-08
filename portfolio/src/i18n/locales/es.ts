@@ -56,6 +56,7 @@ const es: LocaleContent = {
     allRightsReserved: 'Todos los derechos reservados.',
     currentBadge: 'Actual',
     initialsMonogram: '— monograma de iniciales',
+    availableStatus: 'disponible',
   },
 
   sections: {

@@ -56,6 +56,7 @@ const tr: LocaleContent = {
     allRightsReserved: 'Tüm hakları saklıdır.',
     currentBadge: 'Güncel',
     initialsMonogram: '— baş harf monogramı',
+    availableStatus: 'müsait',
   },
 
   sections: {

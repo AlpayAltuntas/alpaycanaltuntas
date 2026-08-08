@@ -7,6 +7,7 @@ import { HeroCanvas } from '../components/HeroCanvas'
 import { GlowOrbs } from '../components/GlowOrbs'
 import { ScanLine } from '../components/ScanLine'
 import { MagneticLink } from '../components/MagneticLink'
+import { HeroStatusCard } from '../components/HeroStatusCard'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 
 const iconFor = { github: Github, linkedin: Linkedin, mail: Mail, 'file-down': FileDown } as const
@@ -52,6 +53,8 @@ export function Hero() {
       />
 
       <ScanLine />
+
+      <HeroStatusCard />
 
       <motion.div
         style={prefersReducedMotion ? undefined : { y: parallaxY, opacity: parallaxOpacity }}

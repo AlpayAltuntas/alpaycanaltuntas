@@ -56,6 +56,7 @@ const pt: LocaleContent = {
     allRightsReserved: 'Todos os direitos reservados.',
     currentBadge: 'Atual',
     initialsMonogram: '— monograma de iniciais',
+    availableStatus: 'disponível',
   },
 
   sections: {
