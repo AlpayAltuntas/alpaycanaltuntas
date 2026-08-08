@@ -49,13 +49,16 @@ export function Community() {
                     photo.wide ? 'col-span-2 aspect-[16/9]' : 'aspect-[4/3]'
                   }`}
                 >
-                  <img
-                    src={photo.src}
-                    alt={photo.alt}
-                    loading="lazy"
-                    decoding="async"
-                    className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                  />
+                  <picture>
+                    <source srcSet={photo.src.replace(/\.jpg$/, '.webp')} type="image/webp" />
+                    <img
+                      src={photo.src}
+                      alt={photo.alt}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                    />
+                  </picture>
                   <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/70 via-black/0 to-black/0 p-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     <p className="text-left text-xs leading-snug text-white">{photo.caption}</p>
                   </div>

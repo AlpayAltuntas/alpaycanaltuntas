@@ -56,11 +56,14 @@ export function Lightbox({ photos, index, onClose, onIndexChange }: LightboxProp
             transition={{ duration: prefersReducedMotion ? 0.01 : 0.25, ease: [0.16, 1, 0.3, 1] }}
             className="relative max-h-full max-w-4xl"
           >
-            <img
-              src={photos[index].src}
-              alt={photos[index].alt}
-              className="max-h-[75vh] w-auto rounded-xl border border-border object-contain"
-            />
+            <picture>
+              <source srcSet={photos[index].src.replace(/\.jpg$/, '.webp')} type="image/webp" />
+              <img
+                src={photos[index].src}
+                alt={photos[index].alt}
+                className="max-h-[75vh] w-auto rounded-xl border border-border object-contain"
+              />
+            </picture>
             <figcaption className="mt-4 text-center font-mono text-xs text-muted">
               {photos[index].caption}
             </figcaption>

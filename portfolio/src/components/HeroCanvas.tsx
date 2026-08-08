@@ -51,6 +51,7 @@ export function HeroCanvas() {
     let nextCometAt = 0
     let elapsed = 0
     let lastTime = 0
+    let isVisible = true
 
     const resize = () => {
       const rect = canvas.getBoundingClientRect()
@@ -208,7 +209,7 @@ export function HeroCanvas() {
         ctx.restore()
       }
 
-      if (!prefersReducedMotion) {
+      if (!prefersReducedMotion && isVisible) {
         frameId = requestAnimationFrame(draw)
       }
     }
@@ -230,8 +231,27 @@ export function HeroCanvas() {
     canvas.addEventListener('pointermove', handlePointerMove)
     canvas.addEventListener('pointerleave', handlePointerLeave)
 
+    // Stop the animation loop while the hero is scrolled out of view so it
+    // doesn't keep redrawing (and burning battery) for the rest of the visit.
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const wasVisible = isVisible
+        isVisible = entry.isIntersecting
+        if (isVisible && !wasVisible) {
+          lastTime = 0
+          cancelAnimationFrame(frameId)
+          frameId = requestAnimationFrame(draw)
+        } else if (!isVisible) {
+          cancelAnimationFrame(frameId)
+        }
+      },
+      { threshold: 0 },
+    )
+    observer.observe(canvas)
+
     return () => {
       cancelAnimationFrame(frameId)
+      observer.disconnect()
       window.removeEventListener('resize', resize)
       canvas.removeEventListener('pointermove', handlePointerMove)
       canvas.removeEventListener('pointerleave', handlePointerLeave)
