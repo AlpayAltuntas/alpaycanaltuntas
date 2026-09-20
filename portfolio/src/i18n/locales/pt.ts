@@ -8,6 +8,7 @@ const pt: LocaleContent = {
     { label: 'Experiência', href: '#experience' },
     { label: 'Habilidades', href: '#skills' },
     { label: 'Paixões', href: '#passions' },
+    { label: 'Projetos', href: '#projects' },
     { label: 'Formação', href: '#education' },
     { label: 'Contato', href: '#contact' },
   ],
@@ -78,15 +79,20 @@ const pt: LocaleContent = {
       spokenLanguagesLabel: 'Idiomas',
     },
     passions: { index: '06 / Paixões', title: 'O que me apaixona.' },
+    projects: {
+      index: '07 / Projetos',
+      title: 'O que já lancei.',
+      description: 'Trabalho open source, publicado e em uso ativo.',
+    },
     community: { index: '03 / Comunidade' },
     education: {
-      index: '07 / Formação',
+      index: '08 / Formação',
       title: 'Certificações e formação.',
       educationLabel: 'Formação',
       certificationsLabel: 'Certificações',
     },
     contact: {
-      index: '08 / Contato',
+      index: '09 / Contato',
       title: 'Vamos construir algo que valha a pena.',
       description:
         'Aberto a vagas remotas nos EUA. Entre em contato diretamente — sem formulários, sem intermediários.',
@@ -263,6 +269,20 @@ const pt: LocaleContent = {
     {
       title: 'Código aberto',
       description: 'Ampliar minhas contribuições em código aberto, retribuindo às ferramentas em que confio.',
+    },
+  ],
+
+  projects: [
+    {
+      name: 'Chaperone',
+      tagline: 'Scanner de segurança para agentes de IA auto-hospedados',
+      description:
+        'Uma ferramenta de linha de comando que audita agentes de IA pessoais auto-hospedados — configuração, skills/plugins, gateway, logs — em relação a 29 verificações mapeadas para o OWASP LLM Top 10. Publicada no npm com procedência assinada via trusted publishing OIDC do GitHub Actions.',
+      badges: ['29 verificações', 'OWASP LLM Top 10', 'TypeScript', 'MIT'],
+      links: [
+        { label: 'npm', href: 'https://www.npmjs.com/package/@alpay_altuntas/chaperone', icon: 'npm' },
+        { label: 'GitHub', href: 'https://github.com/AlpayAltuntas/chaperone', icon: 'github' },
+      ],
     },
   ],
 

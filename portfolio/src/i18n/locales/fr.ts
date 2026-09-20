@@ -8,6 +8,7 @@ const fr: LocaleContent = {
     { label: 'Expérience', href: '#experience' },
     { label: 'Compétences', href: '#skills' },
     { label: 'Passions', href: '#passions' },
+    { label: 'Projets', href: '#projects' },
     { label: 'Formation', href: '#education' },
     { label: 'Contact', href: '#contact' },
   ],
@@ -78,15 +79,20 @@ const fr: LocaleContent = {
       spokenLanguagesLabel: 'Langues parlées',
     },
     passions: { index: '06 / Passions', title: 'Ce qui me passionne.' },
+    projects: {
+      index: '07 / Projets',
+      title: "Ce que j'ai livré.",
+      description: 'Travaux open source, publiés et activement utilisés.',
+    },
     community: { index: '03 / Communauté' },
     education: {
-      index: '07 / Formation',
+      index: '08 / Formation',
       title: 'Certifications & formation.',
       educationLabel: 'Formation',
       certificationsLabel: 'Certifications',
     },
     contact: {
-      index: '08 / Contact',
+      index: '09 / Contact',
       title: 'Construisons quelque chose qui en vaut la peine.',
       description:
         'Ouvert aux postes en télétravail à travers les États-Unis. Contactez-moi directement — sans formulaire, sans intermédiaire.',
@@ -263,6 +269,20 @@ const fr: LocaleContent = {
     {
       title: 'Open source',
       description: "Développer mes contributions open source, pour redonner aux outils sur lesquels je m'appuie.",
+    },
+  ],
+
+  projects: [
+    {
+      name: 'Chaperone',
+      tagline: 'Scanner de sécurité pour agents IA auto-hébergés',
+      description:
+        "Un outil en ligne de commande qui audite des agents IA personnels auto-hébergés — configuration, skills/plugins, passerelle, journaux — selon 29 contrôles mappés sur l'OWASP LLM Top 10. Publié sur npm avec une provenance signée via le trusted publishing OIDC de GitHub Actions.",
+      badges: ['29 contrôles', 'OWASP LLM Top 10', 'TypeScript', 'MIT'],
+      links: [
+        { label: 'npm', href: 'https://www.npmjs.com/package/@alpay_altuntas/chaperone', icon: 'npm' },
+        { label: 'GitHub', href: 'https://github.com/AlpayAltuntas/chaperone', icon: 'github' },
+      ],
     },
   ],
 
