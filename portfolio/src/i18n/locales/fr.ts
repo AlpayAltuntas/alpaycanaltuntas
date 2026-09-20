@@ -284,6 +284,14 @@ const fr: LocaleContent = {
         { label: 'GitHub', href: 'https://github.com/AlpayAltuntas/chaperone', icon: 'github' },
       ],
     },
+    {
+      name: 'qwe-code-assistant',
+      tagline: 'Assistant de code IA local et hors ligne',
+      description:
+        "Un assistant de code privé, entièrement hors ligne, exécuté sur l'appareil via Ollama, avec une couche spécialiste EDI/e-facturation ancrée par RAG, un serveur MCP pour l'analyse et la validation réelles d'EDIFACT/UBL/CII/ZUGFeRD, et un modèle de menace STRIDE/OWASP LLM Top 10.",
+      badges: ['Ollama', 'RAG', 'Serveur MCP', 'Apache-2.0'],
+      links: [{ label: 'GitHub', href: 'https://github.com/AlpayAltuntas/qwe-code-assistant', icon: 'github' }],
+    },
   ],
 
   community: {
