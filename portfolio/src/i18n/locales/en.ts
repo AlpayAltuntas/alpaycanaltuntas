@@ -8,6 +8,7 @@ const en: LocaleContent = {
     { label: 'Experience', href: '#experience' },
     { label: 'Skills', href: '#skills' },
     { label: 'Passions', href: '#passions' },
+    { label: 'Projects', href: '#projects' },
     { label: 'Education', href: '#education' },
     { label: 'Contact', href: '#contact' },
   ],
@@ -78,15 +79,20 @@ const en: LocaleContent = {
       spokenLanguagesLabel: 'Spoken Languages',
     },
     passions: { index: '06 / Passions', title: "What I'm passionate about." },
+    projects: {
+      index: '07 / Projects',
+      title: "What I've shipped.",
+      description: 'Open-source work, published and in active use.',
+    },
     community: { index: '03 / Community' },
     education: {
-      index: '07 / Education',
+      index: '08 / Education',
       title: 'Certifications & education.',
       educationLabel: 'Education',
       certificationsLabel: 'Certifications',
     },
     contact: {
-      index: '08 / Contact',
+      index: '09 / Contact',
       title: "Let's build something worth shipping.",
       description: 'Open to remote roles across the U.S. Reach out directly — no forms, no gatekeeping.',
     },
@@ -262,6 +268,20 @@ const en: LocaleContent = {
     {
       title: 'Open source',
       description: 'Growing my open-source contributions and giving back to the tools I rely on.',
+    },
+  ],
+
+  projects: [
+    {
+      name: 'Chaperone',
+      tagline: 'Security scanner for self-hosted AI agents',
+      description:
+        'A CLI tool that audits self-hosted personal AI agents — config, skills/plugins, gateway, logs — against 29 checks mapped to the OWASP LLM Top 10. Published on npm with signed provenance via GitHub Actions OIDC trusted publishing.',
+      badges: ['29 checks', 'OWASP LLM Top 10', 'TypeScript', 'MIT'],
+      links: [
+        { label: 'npm', href: 'https://www.npmjs.com/package/@alpay_altuntas/chaperone', icon: 'npm' },
+        { label: 'GitHub', href: 'https://github.com/AlpayAltuntas/chaperone', icon: 'github' },
+      ],
     },
   ],
 
