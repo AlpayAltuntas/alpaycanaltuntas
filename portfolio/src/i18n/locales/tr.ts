@@ -283,6 +283,14 @@ const tr: LocaleContent = {
         { label: 'GitHub', href: 'https://github.com/AlpayAltuntas/chaperone', icon: 'github' },
       ],
     },
+    {
+      name: 'qwe-code-assistant',
+      tagline: 'Yerel, çevrimdışı çalışan AI kodlama asistanı',
+      description:
+        'Ollama üzerinden tamamen cihaz üzerinde çalışan, özel ve tamamen çevrimdışı bir kodlama asistanı; RAG ile desteklenen bir EDI/e-fatura uzman katmanı, gerçek EDIFACT/UBL/CII/ZUGFeRD ayrıştırma ve doğrulama yapan bir MCP sunucusu ve STRIDE/OWASP LLM Top 10 tehdit modeli içerir.',
+      badges: ['Ollama', 'RAG', 'MCP sunucusu', 'Apache-2.0'],
+      links: [{ label: 'GitHub', href: 'https://github.com/AlpayAltuntas/qwe-code-assistant', icon: 'github' }],
+    },
   ],
 
   community: {
