@@ -42,10 +42,13 @@ export function Impact() {
           description={sections.impact.description}
         />
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-          {metrics.map((metric, i) => (
-            <MetricCard key={metric.label} metric={metric} delay={i * 0.08} />
-          ))}
+        <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+          <MetricCard metric={metrics[0]} delay={0} featured />
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-3 lg:grid-cols-1">
+            {metrics.slice(1).map((metric, i) => (
+              <MetricCard key={metric.label} metric={metric} delay={(i + 1) * 0.08} />
+            ))}
+          </div>
         </div>
 
         <div className="mt-5">

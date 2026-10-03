@@ -1,9 +1,11 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import type { CommunityPhoto } from '../i18n/types'
 import { useContent } from '../i18n/LanguageContext'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
+
+const FOCUSABLE_SELECTOR = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
 
 interface LightboxProps {
   photos: CommunityPhoto[]
@@ -16,6 +18,23 @@ export function Lightbox({ photos, index, onClose, onIndexChange }: LightboxProp
   const { ui } = useContent()
   const prefersReducedMotion = usePrefersReducedMotion()
   const isOpen = index !== null
+  const dialogRef = useRef<HTMLDivElement>(null)
+  const triggerRef = useRef<HTMLElement | null>(null)
+
+  // Lifecycle only: capture/restore focus and lock scroll once per open/close,
+  // not on every arrow-key photo navigation (which also changes `index`).
+  useEffect(() => {
+    if (!isOpen) return
+
+    triggerRef.current = document.activeElement as HTMLElement | null
+    dialogRef.current?.focus()
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.body.style.overflow = ''
+      triggerRef.current?.focus()
+    }
+  }, [isOpen])
 
   useEffect(() => {
     if (!isOpen) return
@@ -24,29 +43,40 @@ export function Lightbox({ photos, index, onClose, onIndexChange }: LightboxProp
       if (event.key === 'Escape') onClose()
       if (event.key === 'ArrowRight') onIndexChange(((index as number) + 1) % photos.length)
       if (event.key === 'ArrowLeft') onIndexChange(((index as number) - 1 + photos.length) % photos.length)
+      if (event.key === 'Tab') {
+        const focusable = dialogRef.current?.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)
+        if (!focusable || focusable.length === 0) return
+        const first = focusable[0]
+        const last = focusable[focusable.length - 1]
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault()
+          last.focus()
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault()
+          first.focus()
+        }
+      }
     }
 
     document.addEventListener('keydown', handleKeyDown)
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown)
-      document.body.style.overflow = ''
-    }
+    return () => document.removeEventListener('keydown', handleKeyDown)
   }, [isOpen, index, photos.length, onClose, onIndexChange])
 
   return (
     <AnimatePresence>
       {isOpen && index !== null && (
         <motion.div
+          ref={dialogRef}
           role="dialog"
           aria-modal="true"
           aria-label={photos[index].caption}
+          tabIndex={-1}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: prefersReducedMotion ? 0.01 : 0.2 }}
           onClick={onClose}
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-bg/95 p-4 backdrop-blur-md sm:p-10"
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-bg/95 p-4 backdrop-blur-md outline-none sm:p-10"
         >
           <motion.figure
             onClick={(event) => event.stopPropagation()}

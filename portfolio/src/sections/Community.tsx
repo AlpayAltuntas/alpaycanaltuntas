@@ -59,10 +59,13 @@ export function Community() {
                       className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                     />
                   </picture>
-                  <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/70 via-black/0 to-black/0 p-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  {/* Visible by default (touch has no hover to reveal these on); only pointer
+                      devices get the quiet-until-hover treatment, via an explicit (hover: hover)
+                      gate rather than relying on a framework default. */}
+                  <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/70 via-black/10 to-transparent p-3 opacity-100 transition-opacity duration-300 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100">
                     <p className="text-left text-xs leading-snug text-white">{photo.caption}</p>
                   </div>
-                  <div className="absolute right-2 top-2 flex h-7 w-7 items-center justify-center rounded-full bg-black/50 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <div className="absolute right-2 top-2 flex h-7 w-7 items-center justify-center rounded-full bg-black/50 text-white opacity-100 transition-opacity duration-300 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100">
                     <Maximize2 size={13} />
                   </div>
                 </button>

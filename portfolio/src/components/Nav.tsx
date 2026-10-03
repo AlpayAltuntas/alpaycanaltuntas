@@ -9,7 +9,17 @@ import { Container } from './Container'
 
 // Href order (and ids) is identical across every locale — only the labels are translated —
 // so this stays a stable module-level reference instead of being recomputed from content.nav.
-const SECTION_IDS = ['about', 'impact', 'community', 'experience', 'skills', 'passions', 'education', 'contact']
+const SECTION_IDS = [
+  'about',
+  'impact',
+  'community',
+  'experience',
+  'skills',
+  'passions',
+  'projects',
+  'education',
+  'contact',
+]
 
 export function Nav() {
   const content = useContent()
@@ -28,27 +38,32 @@ export function Nav() {
         </a>
 
         <nav className="hidden items-center gap-1 md:flex" aria-label={content.ui.primaryNav}>
-          {content.nav.map((link) => {
+          {content.nav.map((link, i) => {
             const id = link.href.replace('#', '')
             const isActive = id === activeId
             return (
-              <a
-                key={link.href}
-                href={link.href}
-                aria-current={isActive ? 'true' : undefined}
-                className={`relative px-3 py-2 font-mono text-xs uppercase tracking-wider transition-colors ${
-                  isActive ? 'text-accent' : 'text-muted hover:text-ink'
-                }`}
-              >
-                {link.label}
-                {isActive && (
-                  <motion.span
-                    layoutId="nav-active"
-                    className="absolute inset-x-2 -bottom-px h-px bg-accent"
-                    transition={{ type: 'spring', stiffness: 500, damping: 35 }}
-                  />
-                )}
-              </a>
+              <div key={link.href} className="flex items-center">
+                {/* Group into clusters of 3 (About/Impact/Community, Experience/Skills/Passions,
+                    Projects/Education/Contact) so the 9-item nav reads as three scannable chunks
+                    instead of one flat row. */}
+                {i > 0 && i % 3 === 0 && <span className="mx-1.5 h-4 w-px bg-border" aria-hidden />}
+                <a
+                  href={link.href}
+                  aria-current={isActive ? 'true' : undefined}
+                  className={`relative px-3 py-2 font-mono text-xs uppercase tracking-wider transition-colors ${
+                    isActive ? 'text-accent' : 'text-muted hover:text-ink'
+                  }`}
+                >
+                  {link.label}
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-active"
+                      className="absolute inset-x-2 -bottom-px h-px bg-accent"
+                      transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+                    />
+                  )}
+                </a>
+              </div>
             )
           })}
         </nav>
@@ -79,16 +94,28 @@ export function Nav() {
             className="overflow-hidden border-b border-border bg-bg md:hidden"
           >
             <Container className="flex flex-col gap-1 py-3">
-              {content.nav.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="rounded px-2 py-2.5 font-mono text-sm uppercase tracking-wider text-muted hover:bg-surface hover:text-ink"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {content.nav.map((link, i) => {
+                const id = link.href.replace('#', '')
+                const isActive = id === activeId
+                return (
+                  <div key={link.href} className={i > 0 && i % 3 === 0 ? 'mt-2 border-t border-border pt-2' : ''}>
+                    <a
+                      href={link.href}
+                      onClick={() => setMobileOpen(false)}
+                      aria-current={isActive ? 'true' : undefined}
+                      className={`flex items-center gap-2.5 rounded px-2 py-2.5 font-mono text-sm uppercase tracking-wider transition-colors ${
+                        isActive ? 'text-accent' : 'text-muted hover:bg-surface hover:text-ink'
+                      }`}
+                    >
+                      <span
+                        className={`h-1.5 w-1.5 rounded-full ${isActive ? 'bg-accent' : 'bg-transparent'}`}
+                        aria-hidden
+                      />
+                      {link.label}
+                    </a>
+                  </div>
+                )
+              })}
             </Container>
           </motion.nav>
         )}

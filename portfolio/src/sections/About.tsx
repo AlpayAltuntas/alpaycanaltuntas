@@ -10,7 +10,7 @@ export function About() {
   return (
     <section id="about" className="scroll-mt-16 py-24 sm:py-32">
       <Container>
-        <SectionHeading index={sections.about.index} title={sections.about.title} />
+        <SectionHeading index={sections.about.index} title={sections.about.title} emphasis />
 
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
           <Reveal delay={0.1}>

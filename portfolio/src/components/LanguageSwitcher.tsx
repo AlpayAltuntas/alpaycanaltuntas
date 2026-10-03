@@ -38,13 +38,14 @@ export function LanguageSwitcher() {
         type="button"
         aria-haspopup="listbox"
         aria-expanded={open}
-        aria-label={content.ui.languageSelector}
+        aria-label={`${content.ui.languageSelector} (${current.label})`}
         onClick={() => setOpen((v) => !v)}
-        className="flex h-8 items-center gap-1 rounded-full border border-border bg-surface px-2.5 text-sm transition-colors hover:border-accent focus-visible:outline-2"
+        className="flex h-8 items-center gap-1.5 rounded-full border border-border bg-surface px-2.5 text-sm transition-colors hover:border-accent focus-visible:outline-2"
       >
         <span aria-hidden className="leading-none">
           {current.flag}
         </span>
+        <span className="font-mono text-xs uppercase tracking-wider text-muted">{current.code}</span>
         <ChevronDown
           size={12}
           strokeWidth={2.5}
