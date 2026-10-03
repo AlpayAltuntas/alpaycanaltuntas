@@ -19,8 +19,8 @@ const fr: LocaleContent = {
     roleLine: 'Senior Software Engineer · Team Lead · Product Owner',
     positioning:
       "Je conçois des logiciels évolutifs, sécurisés et orientés produit — de l'architecture système jusqu'aux fonctionnalités livrées.",
-    location: 'Basé à / en cours de déménagement à Memphis, TN, USA',
-    availability: 'Ouvert au télétravail (États-Unis)',
+    location: 'Hambourg, Allemagne',
+    availability: 'Ouvert à Hambourg (sur site/hybride) et au télétravail — EMEA, Allemagne, États-Unis',
     funFact: "Déboguer donne parfois l'impression d'être à la fois l'enquêteur et le coupable.",
     photo: `${import.meta.env.BASE_URL}profile.jpg`,
   },
@@ -33,7 +33,7 @@ const fr: LocaleContent = {
       icon: 'linkedin',
     },
     { label: 'E-mail', href: 'mailto:' + 'Alpaycanaltuntas' + '@' + 'gmail.com', icon: 'mail' },
-    { label: 'CV', href: `${import.meta.env.BASE_URL}resume.pdf`, icon: 'file-down' },
+    { label: 'CV', href: `${import.meta.env.BASE_URL}Alpay_Altuntas_Resume.pdf`, icon: 'file-down' },
   ],
 
   ui: {
@@ -89,7 +89,7 @@ const fr: LocaleContent = {
       index: '08 / Contact',
       title: 'Construisons quelque chose qui en vaut la peine.',
       description:
-        'Ouvert aux postes en télétravail à travers les États-Unis. Contactez-moi directement — sans formulaire, sans intermédiaire.',
+        'Ouvert aux postes à Hambourg (sur site/hybride) et au télétravail aux États-Unis, en EMEA et en Allemagne. Contactez-moi directement — sans formulaire, sans intermédiaire.',
     },
   },
 
@@ -100,7 +100,7 @@ const fr: LocaleContent = {
       "J'ai étudié l'informatique aux États-Unis (Magna Cum Laude), j'ai été athlète universitaire, et je parle couramment quatre langues. J'attache une grande importance à la performance, à la maintenabilité à long terme et à la fiabilité des logiciels que je construis.",
     ],
     fastFacts: [
-      { label: 'Localisation', value: 'Memphis, TN, USA' },
+      { label: 'Localisation', value: 'Hambourg, Allemagne' },
       { label: 'Langues', value: 'EN · DE · TR · FR' },
       { label: 'Domaines', value: 'Architecture · Sécurité · Produit' },
     ],
@@ -151,8 +151,8 @@ const fr: LocaleContent = {
       current: true,
       roles: [
         {
-          title: 'Senior Software Engineer & Team Lead',
-          period: 'Avr. 2026 – Aujourd\'hui',
+          title: 'Senior Software Architect & Team Lead',
+          period: 'Mars 2026 – Aujourd\'hui',
           bullets: [
             'Direction de la modernisation des applications cœur de métier : +55 % de satisfaction client et +20 % de nouveaux contrats.',
             "Responsable de bout en bout de la livraison et de l'architecture système d'applications full-stack évolutives, de microservices et de plateformes de données intégrées à SAP.",
@@ -163,7 +163,7 @@ const fr: LocaleContent = {
         },
         {
           title: 'Software Engineer',
-          period: 'Mai 2024 – Avr. 2026',
+          period: 'Mai 2024 – Févr. 2026',
           bullets: [
             "Optimisation de requêtes big data derrière des pipelines de facturation électronique & OCR, réduisant le temps de traitement de 70 %.",
             "Extension de la couverture pays de 30 à 40 avec l'équipe SAP et de nouvelles intégrations API.",

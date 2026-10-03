@@ -19,8 +19,8 @@ const es: LocaleContent = {
     roleLine: 'Senior Software Engineer · Team Lead · Product Owner',
     positioning:
       'Diseño software escalable, seguro y orientado al producto — desde la arquitectura del sistema hasta las funcionalidades entregadas.',
-    location: 'Radicado en / mudándome a Memphis, TN, EE. UU.',
-    availability: 'Abierto a trabajo remoto (EE. UU.)',
+    location: 'Hamburgo, Alemania',
+    availability: 'Abierto a Hamburgo (presencial/híbrido) y remoto — EMEA, Alemania, EE. UU.',
     funFact: 'Depurar código a veces se siente como ser el investigador y el culpable al mismo tiempo.',
     photo: `${import.meta.env.BASE_URL}profile.jpg`,
   },
@@ -33,7 +33,7 @@ const es: LocaleContent = {
       icon: 'linkedin',
     },
     { label: 'Correo', href: 'mailto:' + 'Alpaycanaltuntas' + '@' + 'gmail.com', icon: 'mail' },
-    { label: 'CV', href: `${import.meta.env.BASE_URL}resume.pdf`, icon: 'file-down' },
+    { label: 'CV', href: `${import.meta.env.BASE_URL}Alpay_Altuntas_Resume.pdf`, icon: 'file-down' },
   ],
 
   ui: {
@@ -89,7 +89,7 @@ const es: LocaleContent = {
       index: '08 / Contacto',
       title: 'Construyamos algo que valga la pena.',
       description:
-        'Abierto a puestos remotos en todo EE. UU. Contáctame directamente — sin formularios ni intermediarios.',
+        'Abierto a puestos en Hamburgo (presencial/híbrido) y remotos en EE. UU., EMEA y Alemania. Contáctame directamente — sin formularios ni intermediarios.',
     },
   },
 
@@ -100,7 +100,7 @@ const es: LocaleContent = {
       'Estudié Ciencias de la Computación en EE. UU. (Magna Cum Laude), fui deportista universitario y hablo cuatro idiomas con fluidez. Me importan el rendimiento, la mantenibilidad a largo plazo y construir software en el que la gente realmente confíe.',
     ],
     fastFacts: [
-      { label: 'Ubicación', value: 'Memphis, TN, EE. UU.' },
+      { label: 'Ubicación', value: 'Hamburgo, Alemania' },
       { label: 'Idiomas', value: 'EN · DE · TR · FR' },
       { label: 'Enfoque', value: 'Arquitectura · Seguridad · Producto' },
     ],
@@ -151,8 +151,8 @@ const es: LocaleContent = {
       current: true,
       roles: [
         {
-          title: 'Senior Software Engineer & Team Lead',
-          period: 'Abr. 2026 – Actualidad',
+          title: 'Senior Software Architect & Team Lead',
+          period: 'Mar. 2026 – Actualidad',
           bullets: [
             'Lideré la modernización de aplicaciones clave, logrando +55 % en CSAT y +20 % en nuevos contratos.',
             'Responsable de principio a fin de la entrega y la arquitectura de sistemas de aplicaciones full-stack escalables, microservicios y plataformas de datos con integraciones SAP.',
@@ -163,7 +163,7 @@ const es: LocaleContent = {
         },
         {
           title: 'Software Engineer',
-          period: 'Mayo 2024 – Abr. 2026',
+          period: 'Mayo 2024 – Feb. 2026',
           bullets: [
             'Optimicé consultas de big data detrás de pipelines de facturación electrónica y OCR, reduciendo el tiempo de procesamiento en un 70 %.',
             'Amplié la cobertura de países de 30 a 40 junto con el equipo de SAP y nuevas integraciones de API.',

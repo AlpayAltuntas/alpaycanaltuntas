@@ -19,8 +19,8 @@ const tr: LocaleContent = {
     roleLine: 'Kıdemli Yazılım Mühendisi · Takım Lideri · Ürün Sahibi',
     positioning:
       'Sistem mimarisinden canlıya alınan özelliklere kadar ölçeklenebilir, güvenli ve ürün odaklı yazılımlar geliştiriyorum.',
-    location: "Memphis, TN, ABD'de yaşıyor / oraya taşınıyor",
-    availability: 'Uzaktan çalışmaya açık (ABD)',
+    location: 'Hamburg, Almanya',
+    availability: "Hamburg'da (yerinde/hibrit) ve uzaktan çalışmaya açığım — EMEA, Almanya, ABD",
     funFact: 'Debug yapmak bazen hem dedektif hem de zanlı olmak gibi hissettiriyor.',
     photo: `${import.meta.env.BASE_URL}profile.jpg`,
   },
@@ -33,7 +33,7 @@ const tr: LocaleContent = {
       icon: 'linkedin',
     },
     { label: 'E-posta', href: 'mailto:' + 'Alpaycanaltuntas' + '@' + 'gmail.com', icon: 'mail' },
-    { label: 'Özgeçmiş', href: `${import.meta.env.BASE_URL}resume.pdf`, icon: 'file-down' },
+    { label: 'Özgeçmiş', href: `${import.meta.env.BASE_URL}Alpay_Altuntas_Resume.pdf`, icon: 'file-down' },
   ],
 
   ui: {
@@ -88,7 +88,8 @@ const tr: LocaleContent = {
     contact: {
       index: '08 / İletişim',
       title: 'Değer katacak bir şeyler inşa edelim.',
-      description: 'ABD genelinde uzaktan rollere açığım. Doğrudan ulaşın — form yok, engel yok.',
+      description:
+        "Hamburg'da (yerinde/hibrit) ve ABD, EMEA ile Almanya'da uzaktan rollere açığım. Doğrudan ulaşın — form yok, engel yok.",
     },
   },
 
@@ -99,7 +100,7 @@ const tr: LocaleContent = {
       "ABD'de Bilgisayar Bilimleri okudum (Magna Cum Laude), üniversite döneminde sporcu öğrenciydim ve dört dili akıcı konuşuyorum. Performans, uzun vadeli sürdürülebilirlik ve insanların gerçekten güvendiği yazılımlar üretmek benim için önemli.",
     ],
     fastFacts: [
-      { label: 'Konum', value: 'Memphis, TN, USA' },
+      { label: 'Konum', value: 'Hamburg, Almanya' },
       { label: 'Diller', value: 'EN · DE · TR · FR' },
       { label: 'Odak', value: 'Mimari · Güvenlik · Ürün' },
     ],
@@ -150,8 +151,8 @@ const tr: LocaleContent = {
       current: true,
       roles: [
         {
-          title: 'Kıdemli Yazılım Mühendisi & Takım Lideri',
-          period: 'Nis 2026 – Günümüz',
+          title: 'Kıdemli Yazılım Mimarı & Takım Lideri',
+          period: 'Mar 2026 – Günümüz',
           bullets: [
             'Çekirdek uygulamaların modernizasyonuna liderlik ederek müşteri memnuniyetini %55, yeni sözleşmeleri %20 artırdım.',
             "SAP entegrasyonlu ölçeklenebilir full-stack uygulamalar, mikroservisler ve veri platformları için uçtan uca teslimat ve sistem mimarisinden sorumluyum.",
@@ -162,7 +163,7 @@ const tr: LocaleContent = {
         },
         {
           title: 'Yazılım Mühendisi',
-          period: 'Mayıs 2024 – Nis 2026',
+          period: 'Mayıs 2024 – Şub 2026',
           bullets: [
             'E-fatura ve OCR hatlarının arkasındaki büyük veri sorgularını optimize ederek işlem süresini %70 azalttım.',
             "SAP ekibiyle birlikte ve yeni API entegrasyonlarıyla desteklenen ülke sayısını 30'dan 40'a çıkardım.",
