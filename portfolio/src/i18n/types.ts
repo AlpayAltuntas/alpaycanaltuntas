@@ -54,6 +54,20 @@ export interface Certification {
   year: string
 }
 
+export interface ProjectLink {
+  label: string
+  href: string
+  icon: 'github' | 'npm'
+}
+
+export interface Project {
+  name: string
+  tagline: string
+  description: string
+  badges: string[]
+  links: ProjectLink[]
+}
+
 export interface CommunityPhoto {
   src: string
   alt: string
@@ -113,6 +127,7 @@ export interface LocaleContent {
     experience: { index: string; title: string; description: string }
     skills: { index: string; title: string; description: string; spokenLanguagesLabel: string }
     passions: { index: string; title: string }
+    projects: { index: string; title: string; description?: string }
     community: { index: string }
     education: { index: string; title: string; educationLabel: string; certificationsLabel: string }
     contact: { index: string; title: string; description: string }
@@ -138,6 +153,8 @@ export interface LocaleContent {
   spokenLanguages: SpokenLanguage[]
 
   passions: Passion[]
+
+  projects: Project[]
 
   community: {
     kicker: string

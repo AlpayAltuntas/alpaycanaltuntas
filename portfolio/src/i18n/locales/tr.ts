@@ -8,6 +8,7 @@ const tr: LocaleContent = {
     { label: 'Deneyim', href: '#experience' },
     { label: 'Yetenekler', href: '#skills' },
     { label: 'İlgi Alanlarım', href: '#passions' },
+    { label: 'Projeler', href: '#projects' },
     { label: 'Eğitim', href: '#education' },
     { label: 'İletişim', href: '#contact' },
   ],
@@ -78,15 +79,20 @@ const tr: LocaleContent = {
       spokenLanguagesLabel: 'Konuşulan Diller',
     },
     passions: { index: '06 / İlgi Alanlarım', title: 'Tutkuyla bağlı olduğum şeyler.' },
+    projects: {
+      index: '07 / Projeler',
+      title: 'Geliştirdiklerim.',
+      description: 'Yayınlanmış ve aktif kullanımda olan açık kaynak çalışmalarım.',
+    },
     community: { index: '03 / Topluluk' },
     education: {
-      index: '07 / Eğitim',
+      index: '08 / Eğitim',
       title: 'Sertifikalar & eğitim.',
       educationLabel: 'Eğitim',
       certificationsLabel: 'Sertifikalar',
     },
     contact: {
-      index: '08 / İletişim',
+      index: '09 / İletişim',
       title: 'Değer katacak bir şeyler inşa edelim.',
       description:
         "Hamburg'da (yerinde/hibrit) ve ABD, EMEA ile Almanya'da uzaktan rollere açığım. Doğrudan ulaşın — form yok, engel yok.",
@@ -263,6 +269,28 @@ const tr: LocaleContent = {
     {
       title: 'Açık kaynak',
       description: 'Açık kaynak katkılarımı büyütmek ve güvendiğim araçlara geri vermek.',
+    },
+  ],
+
+  projects: [
+    {
+      name: 'Chaperone',
+      tagline: 'Kendi barındırılan AI ajanları için güvenlik tarayıcısı',
+      description:
+        'Kendi barındırılan kişisel AI ajanlarını — yapılandırma, skill/eklentiler, gateway, loglar — OWASP LLM Top 10 ile eşleştirilmiş 29 kontrole göre denetleyen bir CLI aracı. GitHub Actions OIDC trusted publishing ile imzalı provenance kullanılarak npm üzerinde yayınlandı.',
+      badges: ['29 kontrol', 'OWASP LLM Top 10', 'TypeScript', 'MIT'],
+      links: [
+        { label: 'npm', href: 'https://www.npmjs.com/package/@alpay_altuntas/chaperone', icon: 'npm' },
+        { label: 'GitHub', href: 'https://github.com/AlpayAltuntas/chaperone', icon: 'github' },
+      ],
+    },
+    {
+      name: 'qwe-code-assistant',
+      tagline: 'Yerel, çevrimdışı çalışan AI kodlama asistanı',
+      description:
+        'Ollama üzerinden tamamen cihaz üzerinde çalışan, özel ve tamamen çevrimdışı bir kodlama asistanı; RAG ile desteklenen bir EDI/e-fatura uzman katmanı, gerçek EDIFACT/UBL/CII/ZUGFeRD ayrıştırma ve doğrulama yapan bir MCP sunucusu ve STRIDE/OWASP LLM Top 10 tehdit modeli içerir.',
+      badges: ['Ollama', 'RAG', 'MCP sunucusu', 'Apache-2.0'],
+      links: [{ label: 'GitHub', href: 'https://github.com/AlpayAltuntas/qwe-code-assistant', icon: 'github' }],
     },
   ],
 

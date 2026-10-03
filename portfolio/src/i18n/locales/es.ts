@@ -8,6 +8,7 @@ const es: LocaleContent = {
     { label: 'Experiencia', href: '#experience' },
     { label: 'Habilidades', href: '#skills' },
     { label: 'Pasiones', href: '#passions' },
+    { label: 'Proyectos', href: '#projects' },
     { label: 'Formación', href: '#education' },
     { label: 'Contacto', href: '#contact' },
   ],
@@ -78,15 +79,20 @@ const es: LocaleContent = {
       spokenLanguagesLabel: 'Idiomas',
     },
     passions: { index: '06 / Pasiones', title: 'Lo que me apasiona.' },
+    projects: {
+      index: '07 / Proyectos',
+      title: 'Lo que he lanzado.',
+      description: 'Trabajo de código abierto, publicado y en uso activo.',
+    },
     community: { index: '03 / Comunidad' },
     education: {
-      index: '07 / Formación',
+      index: '08 / Formación',
       title: 'Certificaciones y formación.',
       educationLabel: 'Formación',
       certificationsLabel: 'Certificaciones',
     },
     contact: {
-      index: '08 / Contacto',
+      index: '09 / Contacto',
       title: 'Construyamos algo que valga la pena.',
       description:
         'Abierto a puestos en Hamburgo (presencial/híbrido) y remotos en EE. UU., EMEA y Alemania. Contáctame directamente — sin formularios ni intermediarios.',
@@ -263,6 +269,28 @@ const es: LocaleContent = {
     {
       title: 'Código abierto',
       description: 'Ampliar mis contribuciones de código abierto, devolviendo algo a las herramientas en las que confío.',
+    },
+  ],
+
+  projects: [
+    {
+      name: 'Chaperone',
+      tagline: 'Escáner de seguridad para agentes de IA autoalojados',
+      description:
+        'Una herramienta de línea de comandos que audita agentes de IA personales autoalojados — configuración, skills/plugins, gateway, logs — frente a 29 verificaciones mapeadas al OWASP LLM Top 10. Publicada en npm con procedencia firmada mediante trusted publishing OIDC de GitHub Actions.',
+      badges: ['29 verificaciones', 'OWASP LLM Top 10', 'TypeScript', 'MIT'],
+      links: [
+        { label: 'npm', href: 'https://www.npmjs.com/package/@alpay_altuntas/chaperone', icon: 'npm' },
+        { label: 'GitHub', href: 'https://github.com/AlpayAltuntas/chaperone', icon: 'github' },
+      ],
+    },
+    {
+      name: 'qwe-code-assistant',
+      tagline: 'Asistente de código IA local y sin conexión',
+      description:
+        'Un asistente de código privado y totalmente sin conexión, ejecutado en el dispositivo mediante Ollama, con una capa especializada en EDI/facturación electrónica basada en RAG, un servidor MCP para el análisis y validación reales de EDIFACT/UBL/CII/ZUGFeRD, y un modelo de amenazas STRIDE/OWASP LLM Top 10.',
+      badges: ['Ollama', 'RAG', 'Servidor MCP', 'Apache-2.0'],
+      links: [{ label: 'GitHub', href: 'https://github.com/AlpayAltuntas/qwe-code-assistant', icon: 'github' }],
     },
   ],
 

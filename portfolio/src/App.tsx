@@ -10,6 +10,7 @@ import { Impact } from './sections/Impact'
 import { Experience } from './sections/Experience'
 import { Skills } from './sections/Skills'
 import { Passions } from './sections/Passions'
+import { Projects } from './sections/Projects'
 import { Community } from './sections/Community'
 import { Education } from './sections/Education'
 import { Contact } from './sections/Contact'
@@ -36,6 +37,7 @@ function AppContent() {
         <Experience />
         <Skills />
         <Passions />
+        <Projects />
         <Education />
         <Contact />
       </main>
