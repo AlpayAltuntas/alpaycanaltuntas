@@ -61,8 +61,14 @@
       // Applied before paint to avoid a flash of the wrong theme.
       (function () {
         try {
+          var explicit = localStorage.getItem('aca-theme-explicit') === '1';
           var stored = localStorage.getItem('aca-theme');
-          var theme = stored || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+          var theme =
+            explicit && (stored === 'light' || stored === 'dark')
+              ? stored
+              : window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark'
+                : 'light';
           document.documentElement.setAttribute('data-theme', theme);
         } catch (e) {
           document.documentElement.setAttribute('data-theme', 'dark');
